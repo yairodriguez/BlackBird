@@ -4,7 +4,10 @@ window.onload = function() {
       foreBird = document.querySelector('.fore-bird'),
       clothesPics = document.querySelector('.clothes-pics'),
       figures = Array.prototype.slice.call(document.querySelectorAll(".clothes-pics figure")),
-      offsetY;
+      offsetY, opacity,
+      periscopeWindow = document.querySelector('.periscope'),
+      promoBlock = document.querySelector('.promo');
+
 
   window.addEventListener('scroll', function() {
     offsetY = this.pageYOffset;
@@ -21,6 +24,12 @@ window.onload = function() {
           }, 150 * (i + 1));
         })(i);
       });
+    }
+
+    if(offsetY > periscopeWindow.offsetTop - window.innerHeight) {
+      periscopeWindow.style.backgroundPosition = "center " + (offsetY - periscopeWindow.offsetTop) + "px";
+      opacity = (offsetY - periscopeWindow.offsetTop + window.innerHeight / 2) / (offsetY / 5);
+      promoBlock.style.opacity = opacity;
     }
   });
 };
