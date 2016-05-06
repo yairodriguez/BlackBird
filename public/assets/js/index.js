@@ -46,8 +46,11 @@ window.onload = function() {
 
     if(offsetY > blogContainer.offsetTop - window.innerHeight) {
       offsetPost = Math.min(0, offsetY - blogContainer.offsetTop + window.innerHeight / 3);
-      getVendorPrefix(firstPost, 'Transform', "translate(" + offsetPost + "px, " + Math.abs(offsetPost * .2) + "px)");
-      getVendorPrefix(thirdPost, 'Transform', "translate(" + Math.abs(offsetPost) + "px, " + Math.abs(offsetPost * .2) + "px)");
+
+      if (offsetPost < 0) {
+        getVendorPrefix(firstPost, 'Transform', "translate(" + offsetPost + "px, " + Math.abs(offsetPost * .2) + "px)");
+        getVendorPrefix(thirdPost, 'Transform', "translate(" + Math.abs(offsetPost) + "px, " + Math.abs(offsetPost * .2) + "px)");
+      }
     }
   });
 };
