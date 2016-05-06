@@ -9,15 +9,17 @@ window.onload = function() {
       promoBlock = document.querySelector('.promo'),
       blogContainer = document.querySelector('.blog-posts'),
       firstPost = document.querySelector('.post-1'),
-      thirdPost = document.querySelector('.post-3');
-
+      thirdPost = document.querySelector('.post-3'),
+      birdBox = document.querySelector('.bird-box').clientHeight;
 
   window.addEventListener('scroll', function() {
     offsetY = this.pageYOffset;
 
-    logo.style.webkitTransform = 'translate(0, ' + offsetY/2 + '%)';
-    backBird.style.webkitTransform = 'translate(0, ' + offsetY/4 + '%)';
-    foreBird.style.webkitTransform = 'translate(0, -' + offsetY/40 + '%)';
+    if (offsetY <= birdBox) {
+      logo.style.webkitTransform = 'translate(0, ' + offsetY/2 + '%)';
+      backBird.style.webkitTransform = 'translate(0, ' + offsetY/4 + '%)';
+      foreBird.style.webkitTransform = 'translate(0, -' + offsetY/40 + '%)';
+    }
 
     if(offsetY > clothesPics.offsetTop - (window.innerHeight / 1.2)) {
       figures.forEach(function(value, i) {
