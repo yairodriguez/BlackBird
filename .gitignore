@@ -1,5 +1,3 @@
 .DS_Store
 node_modules/
-public/assets/css/style.css
-public/index.html
 npm-debug.log
